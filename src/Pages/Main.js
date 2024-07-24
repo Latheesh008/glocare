@@ -18,59 +18,91 @@ export default function Main(props) {
   const NavOptions = [
     {
       name: 'ABOUT US',
-      link: '#about',
+      id: 'about',
       ref: AboutRef,
     },
     {
       name: 'SERVICES',
-      link: '#service',
+      id: 'service',
       ref: ServicesRef,
     },
     {
       name: 'FACILITIES',
-      link: '#facilities',
+      id: 'facilities',
       ref: FacilitiesRef,
     },
 
     {
       name: 'ACCREDITATION',
-      link: '#accerditation',
+      id: 'accerditation',
       ref: AccerditationRef,
     },
     {
       name: 'CONTACT US',
-      link: '#contact',
+      id: 'contact',
       ref: ContactRef,
     },
   ];
 
   const [selectedTab, setSelectedTab] = useState(null);
+
   const [onScroll, setOnScroll] = useState(false);
   const setHeaderBackground = (currEle) => {
     window.scrollY > 200 ? setOnScroll(true) : setOnScroll(false);
-    console.log('currEle',currEle)
-  //   if (currEle?.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-  //     $('#menu-center ul li a').removeClass("active");
-  //     currLink.addClass("active");
-  // }
-  // else{
-  //     currLink.removeClass('active');
-  // } 
   };
   useEffect(() => {
     window.addEventListener('scroll', setHeaderBackground);
   }, []);
   const executeScroll = (ref) => {
-    ref?.current?.scrollIntoView();
+
+    const yOffset = -90; // Offset to scroll above the tab content
+    const y = ref?.current?.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3, // 30% of the tab needs to be visible
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setSelectedTab(
+            NavOptions.find((it) => it.id === entry.target.id)?.name
+          );
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    if (HomeRef.current) observer.observe(HomeRef.current);
+    if (FacilitiesRef.current) observer.observe(FacilitiesRef.current);
+    if (ServicesRef.current) observer.observe(ServicesRef.current);
+    if (AccerditationRef.current) observer.observe(AccerditationRef.current);
+    if (ContactRef.current) observer.observe(ContactRef.current);
+    if (AboutRef.current) observer.observe(AboutRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <>
       <header
         className="HeaderTab"
-        style={{ background: onScroll ? '#222222b0' : 'none' }}
+        // style={{ background: onScroll ? '#222222b0' : 'none' }}
+        style={{ background: '#222222b0'}}
+
       >
-        <div style={{ position: 'relative', margin: '0 100px 0 20px' }}>
+        <div style={{ position: 'relative', margin: '0 50px 0 20px' }}>
           <div
             style={{
               display: 'flex',
@@ -111,7 +143,7 @@ export default function Main(props) {
               <ul
                 style={{ display: 'flex', alignItems: 'center', gap: '20px' }}
               >
-                {NavOptions.map(({ name, link, ref }) => (
+                {NavOptions.map(({ name, ref }) => (
                   <li
                     onClick={() => {
                       setSelectedTab(name);
@@ -135,19 +167,19 @@ export default function Main(props) {
       <div ref={HomeRef}>
         <Home />
       </div>
-      <div ref={AboutRef}>
+      <div id="about" ref={AboutRef}>
         <About />
       </div>
-      <div ref={ServicesRef}>
+      <div id="service" ref={ServicesRef}>
         <Services />
       </div>
-      <div ref={FacilitiesRef}>
+      <div id="facilities" ref={FacilitiesRef}>
         <Facilities />
       </div>
-      <div ref={AccerditationRef}>
+      <div id="accerditation" ref={AccerditationRef}>
         <Accerditation />
       </div>
-      <div ref={ContactRef}>
+      <div id="contact" ref={ContactRef}>
         <Contact />
       </div>
     </>
