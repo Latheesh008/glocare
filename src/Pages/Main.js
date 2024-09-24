@@ -6,6 +6,7 @@ import About from './Aboutus';
 import Contact from './ContactUs';
 import Services from './Services';
 import logo from '../images/GlocareLogo.png';
+import Header from '../Components/Header';
 
 export default function Main(props) {
   const HomeRef = useRef(null);
@@ -54,9 +55,9 @@ export default function Main(props) {
     window.addEventListener('scroll', setHeaderBackground);
   }, []);
   const executeScroll = (ref) => {
-
     const yOffset = -90; // Offset to scroll above the tab content
-    const y = ref?.current?.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    const y =
+      ref?.current?.getBoundingClientRect().top + window.pageYOffset + yOffset;
     window.scrollTo({ top: y, behavior: 'smooth' });
   };
 
@@ -96,13 +97,12 @@ export default function Main(props) {
 
   return (
     <>
-      <header
+      {/* <header
         className="HeaderTab"
         // style={{ background: onScroll ? '#222222b0' : 'none' }}
-        style={{ background: '#222222b0'}}
-
+        // style={{ background: '#222222b0'}}
       >
-        <div style={{ position: 'relative', margin: '0 50px 0 20px' }}>
+        <div style={{ position: 'relative', margin: '20px 50px 10px 20px' }}>
           <div
             style={{
               display: 'flex',
@@ -123,20 +123,28 @@ export default function Main(props) {
                 alt="logo"
                 style={{ height: '50px', background: '#ffffff' }}
               />
-              <p
-                onClick={() => {
-                  setSelectedTab(null);
-                  executeScroll(HomeRef);
-                }}
-                style={{
-                  fontSize: '28px',
-                  color: '#ffffff',
-                  fontWeight: 'bold',
-                  cursor: 'pointer',
-                }}
-              >
-                GLOCARE LABS
-              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                <p
+                  onClick={() => {
+                    setSelectedTab(null);
+                    executeScroll(HomeRef);
+                  }}
+                  style={{
+                    fontSize: '28px',
+                    color: '#4b3d7a',
+                    fontWeight: 'bold',
+                    cursor: 'pointer',
+                    margin: 0,
+                  }}
+                >
+                  GLOCARE LABS
+                </p>
+                <p style={{ margin: 0 }}>
+                  <span className="caps_sub">C</span>linical{' '}
+                  <span className="caps_sub">R</span>esearch{' '}
+                  <span className="caps_sub">O</span>rganisation
+                </p>
+              </div>
             </div>
 
             <div className="links">
@@ -152,7 +160,8 @@ export default function Main(props) {
                   >
                     <p
                       style={{
-                        color: selectedTab === name ? '#00ff91' : '#ffffff',
+                        fontWeight: selectedTab === name ? 1000 : 500,
+                        color: '#231f20',
                       }}
                     >
                       {name}
@@ -163,11 +172,12 @@ export default function Main(props) {
             </div>
           </div>
         </div>
-      </header>
-      <div ref={HomeRef}>
-        <Home />
-      </div>
-      <div id="about" ref={AboutRef}>
+      </header> */}
+      <Header />
+      {/* <div ref={HomeRef}> */}
+      <Home />
+      {/* </div> */}
+      {/* <div id="about" ref={AboutRef}>
         <About />
       </div>
       <div id="service" ref={ServicesRef}>
@@ -181,7 +191,7 @@ export default function Main(props) {
       </div>
       <div id="contact" ref={ContactRef}>
         <Contact />
-      </div>
+      </div> */}
     </>
   );
 }
