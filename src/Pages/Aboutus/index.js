@@ -1,7 +1,9 @@
 import React from 'react';
-import nextImg from '../../images/nextIcon.png';
-import intImg from '../../images/international.png';
-import publicImg from '../../images/public.png';
+import nextImg from '../../images/connection.png';
+import intImg from '../../images/int.png';
+import publicImg from '../../images/pub.png';
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
+import Header from '../../Components/Header';
 
 function About() {
   const data = [
@@ -14,104 +16,146 @@ function About() {
   const cardData = [
     {
       imgsrc: intImg,
-      data: 'We uphold the highest global standards, seamlessly incorporating Good Clinical Practice (GCP) and Good Laboratory Practice (GLP) into our operations to define industry excellence.',
-    },
-    {
-      onlyText: true,
-      data: "Embark on your next clinical research journey with a partner who brings ethical practices, operational excellence, and unwavering compliance to every project. At Glocare Labs, we don't just conduct studies, we set global standards.",
+      color: '#4b3d7a',
+      title: 'Operational Excellence:',
+      data: 'Our ISO-certified facilities operate 24/7 to meet demanding timelines without compromising quality. ',
     },
     {
       imgsrc: publicImg,
-      data: 'Our team is our greatest asset, with highly specialized medical professionals combining extensive knowledge and expertise with a strong commitment to process innovation and optimization.',
+      color: '#657b99',
+      title: 'Unwavering Commitment:',
+      data: 'We are dedicated to the success of your clinical trials and building longterm partnerships. ',
     },
-
+    {
+      imgsrc: nextImg,
+      color: '#4b3d7a',
+      title: 'Scientific Expertise:',
+      data: 'Our team of medical professionals brings deep industry knowledge and a passion for innovation. ',
+    },
   ];
-  return (
-    <section className="aboutSection" id="about">
-      <div className="SectionHeader">
-        <p>About Us</p>
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '32px' }}>
-        <div className="AboutCardWrapper">
-          {data.slice(0, 2).map((it) => (
-            <div className="AboutCard">
-              <div style={{ display: 'flex', gap: '12px' }}>
-                <img className="iconWrapper" src={nextImg} alt="nextImg" />
-                <p
-                  style={{
-                    margin: 0,
-                    fontSize: '18px',
-                    fontWeight: 600,
-                    lineHeight: '26px',
-                    color: '#6b6f92',
-                  }}
-                >
-                  {it}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="AboutCardWrapper">
-          {data.slice(2, 4).map((it) => (
-            <div className="AboutCard">
-              <div style={{ display: 'flex', gap: '12px' }}>
-                <img className="iconWrapper" src={nextImg} alt="nextImg" />
-                <p
-                  style={{
-                    margin: 0,
-                    fontSize: '18px',
-                    fontWeight: 600,
-                    lineHeight: '26px',
-                    color: '#6b6f92',
-                  }}
-                >
-                  {it}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+
+  const CustomCard = ({ imgsrc, title, data, color }) => (
+    <div
+      style={{
+        width: '30%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
+      <img
+        src={imgsrc}
+        alt="imgsrc"
+        style={{ width: '150px', height: '150px' }}
+      />
       <div
         style={{
-          display: 'flex',
-          padding: '60px',
-          justifyContent: 'space-between',
+          background: color,
+          color: '#ffffff',
+          borderRadius: '8px',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+          padding: '12px 20px',
+          fontSize: '20px',
         }}
       >
-        {cardData.map(({ imgsrc, data, onlyText }) =>
-          onlyText ? (
-            <p style={{
-              display:'flex',
-              width:'300px',
-              textAlign:'center',
-              alignItems:'center',
-              fontSize:'18px',
-              fontWeight:600
-            }}>{data}</p>
-          ) : (
-            <div className="leftCard">
-              <img
-                src={imgsrc}
-                alt="imgsrc"
-                style={{ width: '100px', height: '100px' }}
-              />
-              <p
-                style={{
-                  margin: 0,
-                  fontSize: '18px',
-                  fontWeight: 600,
-                  lineHeight: '26px',
-                }}
-              >
-                {data}
-              </p>
-            </div>
-          )
-        )}
+        <p
+          style={{
+            margin: 0,
+            fontWeight: 700,
+          }}
+        >
+          {title}
+        </p>
+        <p
+          style={{
+            margin: 0,
+          }}
+        >
+          {data}
+        </p>
       </div>
-    </section>
+    </div>
+  );
+  return (
+    <>
+      <Header />
+      <section className="aboutSection" id="about">
+        <div
+          style={{
+            background: '#e6e7e9',
+            padding: '36px',
+          }}
+        >
+          <p
+            style={{
+              margin: 0,
+            }}
+            className="SectionHeader"
+          >
+            ABOUT US
+          </p>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-around',
+            }}
+          >
+            <div className="AboutCardWrapper">
+              {data.slice(0, 2).map((it) => (
+                <div className="aboutContentWrap">
+                  <TaskAltIcon style={{ fontSize: '32px', color: '#4b3d7a' }} />
+                  <p className="aboutText">{it}</p>
+                </div>
+              ))}
+            </div>
+            <div className="AboutCardWrapper">
+              {data.slice(2, 4).map((it) => (
+                <div className="aboutContentWrap">
+                  <TaskAltIcon style={{ fontSize: '32px', color: '#4b3d7a' }} />
+                  <p className="aboutText">{it}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div
+          style={{
+            padding: '0 36px',
+          }}
+        >
+          <p
+            style={{
+              color: '#231f20',
+              textAlign: 'center',
+              fontSize: '28px',
+              fontWeight: 700,
+            }}
+          >
+            What sets us apart:
+          </p>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            {cardData.map((it) => (
+              <CustomCard {...it} />
+            ))}
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <p style={{ width: '60%', textAlign: 'center', fontSize: '16px' }}>
+              Choose Glocare Labs as your partner in clinical research. Contact
+              us today to learn how we can help bring your life-saving therapies
+              to market faster.
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
