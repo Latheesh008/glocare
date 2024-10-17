@@ -29,7 +29,7 @@ function Header({ background }) {
     },
 
     {
-      name: 'ACCREDITATION',
+      name: 'ACCREDITATIONS',
       path: '/accerditation',
       // ref: AccerditationRef,
     },

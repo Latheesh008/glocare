@@ -1,8 +1,8 @@
 import React from 'react';
-import Bed from '../../images/BED.jpg';
-import Facility_2 from '../../images/facility_2.jpg';
-import Facility_3 from '../../images/facility_3.jpg';
-import Facility_4 from '../../images/facility_4.jpg';
+import Bed from '../../images/facility_D1.jpg';
+import Facility_2 from '../../images/facility_D4.jpg';
+import Facility_3 from '../../images/facility_3new.jpg';
+import Facility_4 from '../../images/facility_D3.jpg';
 import Header from '../../Components/Header';
 
 function Facilities() {

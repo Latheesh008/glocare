@@ -9,8 +9,8 @@ function About() {
   const data = [
     'Glocare Labs is a leading, full-service Clinical Research Organisation (CRO) committed to advancing clinical trials with precision and integrity.',
     'At Glocare Labs, we are dedicated to ethical research processes and innovation in the life sciences sector. For our partners in the pharmaceutical industry, this  results in unparalleled service, scientific excellence, and a reliable CRO team committed to ensuring the success of each clinical trial.',
-    'At Glocare Labs, we are dedicated to setting the benchmark for integrity, operational efficiency, and regulatory compliance in the clinical research industry. Our clinical and bioanalytical facilities are the cornerstone of our operational success.',
-    'At Glocare Labs, our state-of-the-art facilities, rigorously inspected and ISO-certified, exceed industry standards and ensure superior service quality. Operating around the clock, we prioritize our clients timelines, with our clinical and bioanalytical resources poised for efficiency',
+    'We are dedicated to setting the benchmark for integrity, operational efficiency, and regulatory compliance in the clinical research industry. Our clinical and bioanalytical facilities are the cornerstone of our operational success.',
+    'Our state-of-the-art facilities, rigorously inspected and ISO-certified, exceed industry standards and ensure superior service quality. Operating around the clock, we prioritize our clients timelines, with our clinical and bioanalytical resources poised for efficiency',
   ];
 
   const cardData = [
@@ -23,14 +23,14 @@ function About() {
     {
       imgsrc: publicImg,
       color: '#657b99',
-      title: 'Unwavering Commitment:',
-      data: 'We are dedicated to the success of your clinical trials and building longterm partnerships. ',
+      title: 'Scientific Expertise:',
+      data: 'Our team of medical professionals brings deep industry knowledge and a passion for innovation. ',
     },
     {
       imgsrc: nextImg,
       color: '#4b3d7a',
-      title: 'Scientific Expertise:',
-      data: 'Our team of medical professionals brings deep industry knowledge and a passion for innovation. ',
+      title: 'Unwavering Commitment:',
+      data: 'We are dedicated to the success of your clinical trials and building long-term partnerships. ',
     },
   ];
 
@@ -46,7 +46,7 @@ function About() {
       <img
         src={imgsrc}
         alt="imgsrc"
-        style={{ width: '150px', height: '150px' }}
+        style={{ width: '190px', height: '130px' }}
       />
       <div
         style={{
@@ -58,6 +58,11 @@ function About() {
           textAlign: 'center',
           padding: '12px 20px',
           fontSize: '20px',
+          height: '110px',
+          // width: 'auto'
+          marginTop: '5px',
+          display: 'flex',
+          justifyContent: 'center'
         }}
       >
         <p
@@ -130,7 +135,8 @@ function About() {
               color: '#231f20',
               textAlign: 'center',
               fontSize: '28px',
-              fontWeight: 700,
+              fontWeight: 'bold',
+              fontFamily: 'Segoe UI',
             }}
           >
             What sets us apart:

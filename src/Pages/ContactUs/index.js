@@ -31,7 +31,7 @@ function Contact() {
               </div>
               <div className="contactText_3">
                 <p className="contactTitle">Mobile & WhatsApp:</p>
-                <p style={{ color: 'red' }}> +91 94447 03791</p>
+                <p style={{ color: '#000000' }}> +91 94447 03791</p>
               </div>
 
               <div className="contactText_3">
