@@ -5,7 +5,7 @@ import { updateTab } from '../../reducers/headerReducer';
 import { useDispatch } from 'react-redux';
 
 function Home() {
-  const content = ['Ethical', 'Efficient', 'Compliance'];
+  const content = ['Ethical', 'Efficient', 'Compliant'];
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -13,13 +13,15 @@ function Home() {
     <section id="Home">
       <div className="HomeContainer">
         <p className="titleHeader">
-          Your Partner in Clinical Research Excellence
+          YOUR PARTNER IN CLINICAL RESEARCH EXCELLENCE
         </p>
 
         <div
           style={{
             margin: '60px 40px',
             display: 'flex',
+            fontFamily: 'Segoe UI',
+            fontWeight: 'bold'
           }}
         >
           {content.map((it, id) => (
@@ -37,7 +39,7 @@ function Home() {
             </div>
           ))}
         </div>
-        <Button
+        {/* <Button
           style={{
             color: 'black',
             background: '#ffffff',
@@ -49,7 +51,7 @@ function Home() {
           }}
         >
           About us
-        </Button>
+        </Button> */}
       </div>
     </section>
   );

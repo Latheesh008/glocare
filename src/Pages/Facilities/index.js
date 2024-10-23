@@ -1,8 +1,8 @@
 import React from 'react';
-import Bed from '../../images/BED.jpg';
-import Facility_2 from '../../images/facility_2.jpg';
-import Facility_3 from '../../images/facility_3.jpg';
-import Facility_4 from '../../images/facility_4.jpg';
+import Bed from '../../images/facility_D1.jpg';
+import Facility_2 from '../../images/facility_D4.jpg';
+import Facility_3 from '../../images/facility_3new.jpg';
+import Facility_4 from '../../images/facility_D3.jpg';
 import Header from '../../Components/Header';
 
 function Facilities() {
@@ -59,7 +59,7 @@ function Facilities() {
       <section id="Facilities">
         <div style={{ background: '#e6e7e9', padding: '24px' }}>
           <div className="SectionHeader">
-            <p style={{margin:'10px'}}>Facilities</p>
+            <p style={{ margin: '10px' }}>Facilities</p>
           </div>
 
           <div
@@ -160,7 +160,7 @@ function Facilities() {
                 alignItems: 'center',
                 padding: '10px',
                 background: '#ffffff',
-                width: 'fit-content',
+                width: '30%',
               }}
             >
               <img
@@ -169,7 +169,7 @@ function Facilities() {
                 className="cardImage_2"
               />
             </div>
-            <ul className="cardPoints">
+            <ul style={{ width: '70%' }} className="cardPoints">
               {data[3].Points?.map((it) => (
                 <li>{it}</li>
               ))}

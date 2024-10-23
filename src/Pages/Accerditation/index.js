@@ -22,7 +22,7 @@ function Accerditation() {
 
       <section className="AccerditationSection" id="Accerditation">
         <div className="SectionHeader">
-          <p>ACCREDITATION & APPROVALS</p>
+          <p>ACCREDITATIONS & APPROVALS</p>
         </div>
         <div style={{ padding: '0 60px', display: 'flex', justifyContent:'space-between' }}>
           <div style={{width:'45%'}}>
