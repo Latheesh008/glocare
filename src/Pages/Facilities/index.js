@@ -59,7 +59,7 @@ function Facilities() {
       <section id="Facilities">
         <div style={{ background: '#e6e7e9', padding: '24px' }}>
           <div className="SectionHeader">
-            <p style={{margin:'10px'}}>Facilities</p>
+            <p style={{ margin: '10px' }}>Facilities</p>
           </div>
 
           <div
@@ -160,7 +160,7 @@ function Facilities() {
                 alignItems: 'center',
                 padding: '10px',
                 background: '#ffffff',
-                width: 'fit-content',
+                width: '30%',
               }}
             >
               <img
@@ -169,7 +169,7 @@ function Facilities() {
                 className="cardImage_2"
               />
             </div>
-            <ul className="cardPoints">
+            <ul style={{ width: '70%' }} className="cardPoints">
               {data[3].Points?.map((it) => (
                 <li>{it}</li>
               ))}
